@@ -13,8 +13,8 @@
       <th>Summary</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
+  <tbody *ngFor="let forecast of forecasts">
+    <tr >
       <td>{{ forecast.date }}</td>
       <td>{{ forecast.temperatureC }}</td>
       <td>{{ forecast.temperatureF }}</td>

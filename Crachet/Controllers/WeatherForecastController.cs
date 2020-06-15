@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Crachet.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("weatherforecast")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -27,7 +27,7 @@ namespace Crachet.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            var result = new List<WeatherForecast>();
+            /*var result = new List<WeatherForecast>();
             for (int i = 1; i <= 5; i++)
             {
                 var newElement = new WeatherForecast
@@ -39,15 +39,15 @@ namespace Crachet.Controllers
                 result.Add(newElement);
             }
 
-            return result;
+            return result;*/
 
-/*            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(0, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
-            .ToArray(); */
+            .ToArray(); 
         }
     }
 }
