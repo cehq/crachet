@@ -7,18 +7,26 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
   <thead>
     <tr>
+      <th>Select</th>
       <th>Date</th>
       <th>Temp. (C)</th>
       <th>Temp. (F)</th>
       <th>Summary</th>
     </tr>
   </thead>
-  <tbody *ngFor="let forecast of forecasts">
+  <tbody *ngFor="let forecast of forecasts; let rowNumber = index">
     <tr >
-      <td>{{ forecast.date }}</td>
+      <td><button type="button" (click)="selectRow(rowNumber)">Select</button></td>
+      <td>{{ forecast.dateFormattedString }}</td>
       <td>{{ forecast.temperatureC }}</td>
       <td>{{ forecast.temperatureF }}</td>
       <td>{{ forecast.summary }}</td>
     </tr>
   </tbody>
 </table>
+
+
+<div *ngIf="selectedForecast">
+  Date: {{selectedForecast.dateFormattedString}}<br />
+  Summary: {{selectedForecast.summary}}
+</div>
